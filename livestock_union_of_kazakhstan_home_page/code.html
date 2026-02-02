@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Союз животноводства Казахстана</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1d4429", // Refined deep green matching the logo
+                        secondary: "#f59e0b",
+                        "background-light": "#ffffff",
+                        "background-dark": "#111827",
+                        "accent-light": "#f0fdf4",
+                        "accent-dark": "#064e3b",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px",
+                    },
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; }
+        .feedback-tab {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 20s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-200">
+<div class="bg-primary text-white text-[10px] sm:text-xs py-2 px-6 flex justify-between items-center">
+<div class="flex space-x-4 sm:space-x-6">
+<a class="hover:underline" href="#">Стандарты и качество</a>
+<a class="hover:underline" href="#">Рыночные отчеты</a>
+<a class="hover:underline" href="#">О Союзе</a>
+</div>
+<div class="flex space-x-4 sm:space-x-6">
+<a class="hover:underline" href="#">Стать участником</a>
+<a class="hover:underline" href="#">Регистрация в myLUK</a>
+</div>
+</div>
+<header class="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 px-6 py-3">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center space-x-12">
+<img alt="Livestock Union Kazakhstan Logo" class="h-16 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6xqgenHXpAWXr5vn5uTHlOzn4FzAxAe5OYORkAGtyn1JVU5UHJ9YvDk-LEiQrOsrdvi-JEG0SawxxHbhS4txJSD_mAQqSsy2EzES-gbGQcYxs6CV9XFLes_sphfZmJ8FW1bwJnu8yyW4VK4ukRnb6nwsFrf_6JQS75TUpnMeZlwf0u7L-9tee2AJap5fgKU5L3pmlgKbXhzp5Tqc18Lka2QIftcWXlM2PghdUNnCkCzR9WTpEbjAVMcgqAyUsF5gRO5Iq_w2Y4k4"/>
+<nav class="hidden xl:flex items-center space-x-6 font-medium text-sm">
+<div class="group relative py-2">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span>О нас</span>
+</button>
+</div>
+<div class="group relative py-2">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span>Отраслевые данные</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative py-2">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span>Ресурсы</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative py-2">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span>Новости</span>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative py-2">
+<button class="flex items-center space-x-1 hover:text-primary transition-colors">
+<span>Контакты</span>
+</button>
+</div>
+</nav>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative hidden md:block">
+<input class="bg-gray-100 dark:bg-gray-800 border-none rounded-full px-4 py-2 pl-10 text-sm w-48 lg:w-64 focus:ring-2 focus:ring-primary" placeholder="Поиск по сайту" type="text"/>
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-gray-400 text-sm">search</span>
+</div>
+<button class="bg-primary hover:bg-opacity-90 text-white px-5 py-2 rounded-md font-semibold text-sm flex items-center space-x-2">
+<span>Войти в myLUK</span>
+</button>
+</div>
+</div>
+</header>
+<div class="fixed right-0 top-1/2 -translate-y-1/2 z-40">
+<button class="bg-primary text-white text-[10px] font-bold py-4 px-2 feedback-tab uppercase tracking-widest hover:pr-4 transition-all">
+            Обратная связь
+        </button>
+</div>
+<main>
+<section class="relative bg-accent-light dark:bg-accent-dark overflow-hidden min-h-[500px] flex items-center">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-0 w-full">
+<div class="py-16 pr-12 z-10">
+<h1 class="text-4xl lg:text-5xl font-bold text-primary dark:text-white leading-tight mb-6">
+                        Развитие животноводства <br/>Казахстана
+                    </h1>
+<p class="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-lg">
+                        Стимулирование устойчивого роста и глобальной конкурентоспособности казахстанских производителей мяса и молока через инновации и международные стандарты.
+                    </p>
+<div class="flex space-x-4">
+<button class="bg-secondary hover:bg-amber-500 text-black px-8 py-3 rounded font-bold flex items-center transition-colors shadow-sm">
+                            Стать участником <span class="material-symbols-outlined ml-2">person_add</span>
+</button>
+<button class="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded font-bold flex items-center transition-all">
+                            Подробнее
+                        </button>
+</div>
+<div class="mt-16 flex space-x-2">
+<button class="w-3 h-3 rounded-full bg-primary"></button>
+<button class="w-3 h-3 rounded-full border border-primary"></button>
+<button class="w-3 h-3 rounded-full border border-primary"></button>
+<button class="w-3 h-3 rounded-full border border-primary"></button>
+</div>
+</div>
+<div class="relative h-[500px] lg:h-auto">
+<img alt="Пастбища Казахстана" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvPQcRnMlT8ZNu044asWORA2RIREeN-Q5AjtcPGwLjpoCML64wYXOT4mrcBehN4gEEU4bB3Cp-MYxV2CraD_sD2RBi4YPyya5LL8J8dYgik-Q2ZItWMwBsZUo4Ut_d17C577394_eoMXiSNzeWbGhj_Vk8dE___N_LJFz3YoSfl2HhN4IH0Lmg6C-4kmVj-6wy2756SeC_bHyavR5bt7oedJfeuOkROI_SoiRbvd2d0BKDk64VIRzHOUR87IFXWglkgfFhGFJ2f5A"/>
+<div class="absolute bottom-6 right-6 flex space-x-4">
+<button class="w-12 h-12 rounded-full border-2 border-white text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border-2 border-white text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-16 max-w-7xl mx-auto px-6">
+<div class="flex items-center space-x-8 mb-10 border-b border-gray-100 dark:border-gray-800">
+<button class="pb-4 border-b-4 border-primary font-bold text-xl text-primary dark:text-white flex items-center">
+<span class="w-2 h-2 rounded-full bg-primary mr-3"></span> Последние новости
+                </button>
+<button class="pb-4 border-b-4 border-transparent font-medium text-xl text-gray-400 hover:text-gray-600 transition-colors">Цены и Рынки</button>
+<button class="pb-4 border-b-4 border-transparent font-medium text-xl text-gray-400 hover:text-gray-600 transition-colors">События</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="space-y-4">
+<img alt="Транспортировка скота" class="w-full h-56 object-cover rounded shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbkdJzzOF8QH1Fwj_b5ceFN44gYbAyTP-MmMiBGYa_G53WwGnMQqA3c6g46cY5H5egPOnHwuGXDJ9ANDqnuOBiikr8YRUPtZG7VCqlXvFAK8S54p7iOEn09s_gK8ECazmGJppbiRLo4CKXbNNRouSxNUWsCTUVls-nYnMnldu5lYOgFdkfa4CMxPSmYe0KzMn0KXayON686Sl7OmP9AqlxZhuZ_JWNZLuJhK_m-4JwiVgdWd77D1bAwsisNCq68aalJLlP5NRBKnA"/>
+<h3 class="text-xl font-bold leading-tight hover:text-primary cursor-pointer transition-colors">Рост экспорта: казахстанская говядина выходит на новые рынки Юго-Восточной Азии</h3>
+<div class="flex justify-between items-center text-xs font-bold text-gray-500 uppercase tracking-wider">
+<a class="text-primary flex items-center hover:underline" href="#">Подробнее <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span></a>
+<span>24 МАЯ 2024</span>
+</div>
+<hr class="border-gray-100 dark:border-gray-800"/>
+<div class="space-y-4 pt-2">
+<div class="group cursor-pointer">
+<h4 class="font-bold text-base group-hover:text-primary transition-colors">Официальное заявление: Новые субсидии для семейных овцеводческих ферм</h4>
+<p class="text-xs text-gray-500 mt-1 uppercase">18 МАЯ 2024</p>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<img alt="Современное фермерство" class="w-full h-56 object-cover rounded shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXs01uKpYVxr-gIiGb0ltimO-ib6UvM8cWxkOCBmZW9QDLQsry01ryaXGoSE5rM1t7MYRNLibNwS9EZVGyNSfQyrkk45a-grNZzFI9U6XPeEw3XmqecwFEK7x87G-YJxEaE5OuJW-Xq044yOKnx4ygMLn4E4ehj63BzhKwfl3m5xzGR5FzvFGlTv-rZwgtyV4loRvFJasxXNY1bxj-0uYG7jYKZpsK0RSxYaSSU__Tsen6cu6IrztMnqX-LJk53qe_uhk38MrwVXM"/>
+<h3 class="text-xl font-bold leading-tight hover:text-primary cursor-pointer transition-colors">Запуск LUK: Новая цифровая система мониторинга здоровья животных</h3>
+<div class="flex justify-between items-center text-xs font-bold text-gray-500 uppercase tracking-wider">
+<a class="text-primary flex items-center hover:underline" href="#">Подробнее <span class="material-symbols-outlined text-sm ml-1">arrow_forward</span></a>
+<span>20 МАЯ 2024</span>
+</div>
+<hr class="border-gray-100 dark:border-gray-800"/>
+<div class="space-y-4 pt-2">
+<div class="group cursor-pointer">
+<h4 class="font-bold text-base group-hover:text-primary transition-colors">Еженедельный обзор рынка: цены на КРС стабильны на фоне роста экспорта</h4>
+<p class="text-xs text-gray-500 mt-1 uppercase">15 МАЯ 2024</p>
+</div>
+</div>
+</div>
+<div class="bg-accent-light dark:bg-accent-dark/30 rounded flex flex-col h-full overflow-hidden">
+<img alt="Состояние пастбищ" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8VAux8uxYb-PfFNAW8f4NfiKPb0DQwBK0noX-2n8JcbREYzPPlpS-UMt4hrSx4cKC4qkIFK_4WWbhBrnVJZGjLmhLouCfjyH2ErfCEdVuhHt_QjL_TDb5J2hR7hWaDAWPrMTUT5z_sA_3cs6EsgHHP0So1WP12nP0jVnFNN5gw4SQ4YLZW1K-2T-B-nJ1pvWJ-lGU_nMBO8ckC9AjVvv9FgeqB9XEkEe2fUL1UiCzUVCd352vUWlzXpdESuRJA-Wkh7PhU5hrGuc"/>
+<div class="p-8 flex-grow flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-bold text-primary dark:text-emerald-400 mb-4 leading-tight">Центр устойчивости к засухе</h3>
+<p class="text-gray-700 dark:text-gray-300">Важные ресурсы для фермеров по управлению здоровьем пастбищ и питанием скота в засушливые сезоны.</p>
+</div>
+<a class="mt-8 text-primary dark:text-emerald-400 font-bold flex items-center hover:underline" href="#">
+                            Перейти в центр <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-12">
+<a class="text-primary dark:text-emerald-400 font-bold flex items-center hover:underline text-lg" href="#">
+                    Смотреть все новости <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</a>
+</div>
+</section>
+<section class="bg-gray-50 dark:bg-gray-950 py-16">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-3xl font-bold mb-10">Популярные услуги</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-7 bg-white dark:bg-gray-900 rounded-lg p-10 flex flex-col md:flex-row shadow-sm border border-gray-100 dark:border-gray-800 relative overflow-hidden">
+<div class="md:w-2/3 z-10">
+<h3 class="text-3xl font-bold text-primary dark:text-white mb-6 leading-tight">Ваш аккаунт myLUK — ключ к росту бизнеса</h3>
+<p class="text-gray-600 dark:text-gray-400 mb-8">Доступ к персональным дашбордам, рыночной аналитике и инструментам управления сертификацией. Все в одном месте.</p>
+<button class="bg-primary hover:bg-opacity-90 text-white px-10 py-4 rounded font-bold flex items-center transition-colors">
+                                Войти в myLUK
+                            </button>
+</div>
+<div class="md:w-1/3 mt-8 md:mt-0 flex justify-center items-end">
+<img alt="Интерфейс приложения" class="rounded-lg shadow-xl translate-y-10 rotate-3 border-4 border-white dark:border-gray-800" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMAiCEUXdKXjhIRTAmWCH1_lcY5nFweVdRMsbdWTO6KJPm18w-KRhn2nmIwNvKJ74soUhdzJc9KqiamwvbN5rG3Ripo8JbsNQkoYkljaw0tV22tWM2Wvkzi4La0Y0XDknM3CumJsfaTpR1MKw2dfzNXGqO_FwzLpu4l25mNAHFg9L0Okb6pl3yeATIQPZXlfQPvHf9oN7YsaRJw_4AaCFkdzbEHiNpybEvSjhcPoRef-sx-4psp-yoBOxsBu5POP3nlp9frR3sQlE"/>
+</div>
+</div>
+<div class="lg:col-span-5 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 group cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">verified_user</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors">arrow_circle_right</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Гарантия качества</h4>
+<p class="text-sm text-gray-500">Отраслевые программы обеспечения качества для совершенства на фермах.</p>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 group cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">fingerprint</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors">arrow_circle_right</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Система идентификации</h4>
+<p class="text-sm text-gray-500">Система прослеживаемости перемещения скота в Казахстане.</p>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 group cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">description</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors">arrow_circle_right</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Электронные ТТН</h4>
+<p class="text-sm text-gray-500">Цифровое оформление документов для ускорения процессов.</p>
+</div>
+<div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800 group cursor-pointer hover:border-primary transition-colors">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary text-4xl">analytics</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-primary transition-colors">arrow_circle_right</span>
+</div>
+<h4 class="font-bold text-lg mb-2">Мясные стандарты</h4>
+<p class="text-sm text-gray-500">Анализ качества туш и обратная связь через myLUK.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-primary text-white py-20 relative overflow-hidden">
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 items-center gap-12 relative z-10">
+<div>
+<h2 class="text-4xl lg:text-5xl font-bold mb-6 leading-tight">Растущий спрос на казахстанский скот на мировых рынках</h2>
+<p class="text-emerald-100 text-lg mb-8">Мы связываем наших производителей с развивающимися рынками Азии и Европы, гарантируя высокие стандарты качества и прослеживаемости.</p>
+<button class="bg-white text-primary px-8 py-3 rounded font-bold hover:bg-emerald-50 transition-colors">Исследовать мировые рынки</button>
+</div>
+<div class="flex justify-center relative">
+<div class="w-full max-w-md aspect-square bg-emerald-700/30 rounded-full flex items-center justify-center border border-emerald-400/20">
+<div class="w-4/5 h-4/5 border-2 border-dashed border-emerald-400/40 rounded-full animate-spin-slow flex items-center justify-center">
+<div class="w-3/4 h-3/4 bg-emerald-600/50 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-8xl text-emerald-300/30">public</span>
+</div>
+</div>
+<div class="absolute top-1/4 right-0 bg-secondary text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                            Ближний Восток $240M
+                        </div>
+<div class="absolute bottom-1/3 left-0 bg-secondary text-black px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                            Восточная Азия $185M
+                        </div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-10 -right-10 text-[200px] font-black opacity-[0.03] pointer-events-none select-none uppercase">
+                ЭКСПОРТ
+            </div>
+</section>
+</main>
+<footer class="bg-gray-800 dark:bg-gray-900 text-white pt-16 pb-8">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1">
+<img alt="Livestock Union Kazakhstan Official Logo" class="h-20 mb-6 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5cp3rRBOp8VerMMJV-uo7Y9DZ6P-jRy0waQBzui-zsNi6dp3MzIuGtelZZgCsSlTVkq1-bzfT-6uYCOEz_DYHyI5c4ljw2SabQQRNM5KlwO-iR8QVXc0uABYaMhZvl4_i0XoXroae1-oDXPcmwK7DBGODAtAbMK2RaZgx5x1M5TIjPBrFiTshPbjJ39mHHVdwcURi9iQuwYqb8CqM7os6tQIXh0QBHkUcJss_n0YimSg_noxQB4KsbyjbnmdBHJnlNEEd0qjclBQ"/>
+<p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Союз животноводства Казахстана является ведущим отраслевым объединением животноводов и производителей скота Республики.
+                    </p>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-6 uppercase tracking-wider text-emerald-400">Быстрые ссылки</h5>
+<ul class="space-y-4 text-sm text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#">Цены и Рынки</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Исследования и Развитие</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Инструменты и Ресурсы</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Соответствие стандартам</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Новости и События</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-6 uppercase tracking-wider text-emerald-400">О Союзе</h5>
+<ul class="space-y-4 text-sm text-gray-400">
+<li><a class="hover:text-white transition-colors" href="#">Чем мы занимаемся</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Для кого мы работаем</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Финансирование</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Карьера</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Контакты</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-lg mb-6 uppercase tracking-wider text-emerald-400">Контакты</h5>
+<div class="space-y-4 text-sm text-gray-400 mb-8">
+<p class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">phone</span> +7 (7172) 55-66-77</p>
+<p class="flex items-center"><span class="material-symbols-outlined text-sm mr-2">email</span> info@livestockunion.kz</p>
+</div>
+<h5 class="font-bold text-sm mb-4 uppercase tracking-widest text-gray-500">Мы в соцсетях</h5>
+<div class="flex space-x-4">
+<a class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">social_leaderboard</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<img alt="X Icon" class="w-4 h-4 invert" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdgPmS93o_lXI_wQAI3mFE3C6vnzf_K45WNUs7DXgvnOQXNDqW-WQsKzW5DoOW9xIlze1NTXR94s_JOgiekNrm4HM4w0BjGdlEkahR26UnnUx_QBzYYcQVOGztpWCCPDEldtpFKNQPr9kruwXTZzB_kRiSc1SYH_Ig-JCPuzjReSdMRl34_t13LD_WkG5DVBuF7Efl_s9xK-JVjrepZgwVeeuac4phm1DaXz4NhMW_LUhznfVkgL2W3-nNYFLkv0f1AYFrSoZR3H8"/>
+</a>
+<a class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">play_circle</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm">rss_feed</span>
+</a>
+</div>
+</div>
+</div>
+<hr class="border-gray-700 mb-8"/>
+<div class="flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 space-y-4 md:space-y-0 uppercase tracking-widest">
+<div class="flex items-center space-x-4">
+<img alt="Kazakh Ornament" class="h-6 opacity-30 grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi63iDonaQbftREo82WFcvuF_PUvyZ7cSfVKyUM2yjzotFxP08dpiOFGZ8q8hd6-Gax_GI1dhOWgVS9ge_uS_bG8FsSJGXmGd_5_uGePW7MYcj938DtbMbdabnjzZobwfqiyhquPAxiA9elGbXl6Np1xfSYXhig80gpEWwZY9e0RaFfPcClWL_01BoUuf-NEna4WSq2FXZgbD71VqEN-FRDMV5-ESd6bKs6jSTkhlryXQedHhIrFpu8vJ8mrIewgjBr7ShIgr9ccE"/>
+<p class="normal-case tracking-normal">Союз животноводства чтит традиции предков-скотоводов Казахстана.</p>
+</div>
+<div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+<span>© 2024 Союз животноводства Казахстана</span>
+<a class="hover:text-white" href="#">Условия</a>
+<a class="hover:text-white" href="#">Конфиденциальность</a>
+<a class="hover:text-white" href="#">Карта сайта</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
