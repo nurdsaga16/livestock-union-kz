@@ -1,31 +1,53 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Hero } from '@/components/Hero';
 import { NewsCard } from '@/components/NewsCard';
 import { FeatureCard } from '@/components/FeatureCard';
 import { Button } from '@/components/Button';
-
-const NEWS_IMAGES = {
-  cattle:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuBbkdJzzOF8QH1Fwj_b5ceFN44gYbAyTP-MmMiBGYa_G53WwGnMQqA3c6g46cY5H5egPOnHwuGXDJ9ANDqnuOBiikr8YRUPtZG7VCqlXvFAK8S54p7iOEn09s_gK8ECazmGJppbiRLo4CKXbNNRouSxNUWsCTUVls-nYnMnldu5lYOgFdkfa4CMxPSmYe0KzMn0KXayON686Sl7OmP9AqlxZhuZ_JWNZLuJhK_m-4JwiVgdWd77D1bAwsisNCq68aalJLlP5NRBKnA',
-  farming:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuCXs01uKpYVxr-gIiGb0ltimO-ib6UvM8cWxkOCBmZW9QDLQsry01ryaXGoSE5rM1t7MYRNLibNwS9EZVGyNSfQyrkk45a-grNZzFI9U6XPeEw3XmqecwFEK7x87G-YJxEaE5OuJW-Xq044yOKnx4ygMLn4E4ehj63BzhKwfl3m5xzGR5FzvFGlTv-rZwgtyV4loRvFJasxXNY1bxj-0uYG7jYKZpsK0RSxYaSSU__Tsen6cu6IrztMnqX-LJk53qe_uhk38MrwVXM',
-  pasture:
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuA8VAux8uxYb-PfFNAW8f4NfiKPb0DQwBK0noX-2n8JcbREYzPPlpS-UMt4hrSx4cKC4qkIFK_4WWbhBrnVJZGjLmhLouCfjyH2ErfCEdVuhHt_QjL_TDb5J2hR7hWaDAWPrMTUT5z_sA_3cs6EsgHHP0So1WP12nP0jVnFNN5gw4SQ4YLZW1K-2T-B-nJ1pvWJ-lGU_nMBO8ckC9AjVvv9FgeqB9XEkEe2fUL1UiCzUVCd352vUWlzXpdESuRJA-Wkh7PhU5hrGuc',
-};
+import { useNews } from '@/hooks/useNews';
+import { fileUrl } from '@/services/api';
 
 const MYLUK_IMAGE =
   'https://lh3.googleusercontent.com/aida-public/AB6AXuBMAiCEUXdKXjhIRTAmWCH1_lcY5nFweVdRMsbdWTO6KJPm18w-KRhn2nmIwNvKJ74soUhdzJc9KqiamwvbN5rG3Ripo8JbsNQkoYkljaw0tV22tWM2Wvkzi4La0Y0XDknM3CumJsfaTpR1MKw2dfzNXGqO_FwzLpu4l25mNAHFg9L0Okb6pl3yeATIQPZXlfQPvHf9oN7YsaRJw_4AaCFkdzbEHiNpybEvSjhcPoRef-sx-4psp-yoBOxsBu5POP3nlp9frR3sQlE';
 
+const PASTURE_IMAGE =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuA8VAux8uxYb-PfFNAW8f4NfiKPb0DQwBK0noX-2n8JcbREYzPPlpS-UMt4hrSx4cKC4qkIFK_4WWbhBrnVJZGjLmhLouCfjyH2ErfCEdVuhHt_QjL_TDb5J2hR7hWaDAWPrMTUT5z_sA_3cs6EsgHHP0So1WP12nP0jVnFNN5gw4SQ4YLZW1K-2T-B-nJ1pvWJ-lGU_nMBO8ckC9AjVvv9FgeqB9XEkEe2fUL1UiCzUVCd352vUWlzXpdESuRJA-Wkh7PhU5hrGuc';
+
+const PLACEHOLDER_IMAGE =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuBbkdJzzOF8QH1Fwj_b5ceFN44gYbAyTP-MmMiBGYa_G53WwGnMQqA3c6g46cY5H5egPOnHwuGXDJ9ANDqnuOBiikr8YRUPtZG7VCqlXvFAK8S54p7iOEn09s_gK8ECazmGJppbiRLo4CKXbNNRouSxNUWsCTUVls-nYnMnldu5lYOgFdkfa4CMxPSmYe0KzMn0KXayON686Sl7OmP9AqlxZhuZ_JWNZLuJhK_m-4JwiVgdWd77D1bAwsisNCq68aalJLlP5NRBKnA';
+
+const MONTHS_RU = [
+  'ЯНВАРЯ', 'ФЕВРАЛЯ', 'МАРТА', 'АПРЕЛЯ', 'МАЯ', 'ИЮНЯ',
+  'ИЮЛЯ', 'АВГУСТА', 'СЕНТЯБРЯ', 'ОКТЯБРЯ', 'НОЯБРЯ', 'ДЕКАБРЯ',
+] as const;
+
+function formatDateRu(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getDate()} ${MONTHS_RU[d.getMonth()]} ${d.getFullYear()}`;
+}
+
 const TABS = ['Последние новости', 'Цены и Рынки', 'События'] as const;
 type TabId = (typeof TABS)[number];
 
+const NEWS_PARAMS = { size: 4, sort: 'createdAt,desc' } as const;
+
 function HomePageInner() {
   const [activeTab, setActiveTab] = useState<TabId>('Последние новости');
+  const { articles, loading, error } = useNews(NEWS_PARAMS);
 
   const handleTab = useCallback((tab: TabId) => {
     setActiveTab(tab);
   }, []);
+
+  const newsCards = useMemo(() => {
+    if (articles.length === 0) return [];
+
+    const pairs: { primary: (typeof articles)[number]; secondary?: (typeof articles)[number] }[] = [];
+    for (let i = 0; i < articles.length; i += 2) {
+      pairs.push({ primary: articles[i], secondary: articles[i + 1] });
+    }
+    return pairs;
+  }, [articles]);
 
   return (
     <>
@@ -53,26 +75,30 @@ function HomePageInner() {
           ))}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {loading && (
+            <div className="col-span-full flex justify-center py-12">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+            </div>
+          )}
+          {error && (
+            <div className="col-span-full text-center py-12 text-red-500">
+              {error}
+            </div>
+          )}
+          {!loading && !error && newsCards.map(({ primary, secondary }) => (
+            <NewsCard
+              key={primary.id}
+              imageUrl={fileUrl(primary.imageUrl) ?? PLACEHOLDER_IMAGE}
+              imageAlt={primary.title}
+              title={primary.title}
+              date={formatDateRu(primary.createdAt)}
+              linkHref={`/news/${primary.id}`}
+              secondaryTitle={secondary?.title}
+              secondaryDate={secondary ? formatDateRu(secondary.createdAt) : undefined}
+            />
+          ))}
           <NewsCard
-            imageUrl={NEWS_IMAGES.cattle}
-            imageAlt="Транспортировка скота"
-            title="Рост экспорта: казахстанская говядина выходит на новые рынки Юго-Восточной Азии"
-            date="24 МАЯ 2024"
-            linkHref="/news/1"
-            secondaryTitle="Официальное заявление: Новые субсидии для семейных овцеводческих ферм"
-            secondaryDate="18 МАЯ 2024"
-          />
-          <NewsCard
-            imageUrl={NEWS_IMAGES.farming}
-            imageAlt="Современное фермерство"
-            title="Запуск LUK: Новая цифровая система мониторинга здоровья животных"
-            date="20 МАЯ 2024"
-            linkHref="/news/2"
-            secondaryTitle="Еженедельный обзор рынка: цены на КРС стабильны на фоне роста экспорта"
-            secondaryDate="15 МАЯ 2024"
-          />
-          <NewsCard
-            imageUrl={NEWS_IMAGES.pasture}
+            imageUrl={PASTURE_IMAGE}
             imageAlt="Состояние пастбищ"
             title=""
             date=""
